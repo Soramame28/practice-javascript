@@ -8,9 +8,9 @@ function errorInput(){
     console.log("month",month,"day",day)
 }
 
-function monthSelectList(){
 const monthSelect = document.getElementById("month2");
 monthSelectList();
+function monthSelectList(){
     for (let i=1;i<12;i++){
         let option = document.createElement('option');
         option.value = i;
