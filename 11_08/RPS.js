@@ -1,7 +1,7 @@
 function RPS(){
     const choices = ["gu👊","choki✌","pa🖐","muteki🤞"];
-    // この書き方は、配列です。C言語参照
-    
+    // ↑この書き方は、配列です。C言語参照
+    // 面倒な書き方↓
     // let select = document.createElement("select");
     // let option1 = document.createElement("option");
     // let option2 = document.createElement("option");
@@ -17,6 +17,7 @@ function RPS(){
     // option3.textContent = pa;
     // select.appendChild(option3);
     //  gameContainer.appendChild(select);
+    
     
     let select = document.createElement("select");
     choices.forEach(choice => {
