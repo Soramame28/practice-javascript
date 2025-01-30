@@ -51,11 +51,8 @@ ClickCounterGame();
 
 function startNumberGuessGame(){
     
+ 
     let count = 0;
-    
-    
-    
-    
     
     const gameContainer = document.getElementById("game-container")
     
@@ -91,8 +88,15 @@ function startNumberGuessGame(){
             
             message.textContent = "はよやれ"
         }
-// message.textContent = `${Math.abs(randomNumber - inzery) <= 5 ? "惜しい！": "" }${randomNumber > inzery?"大きい": "小さい"}` by Noritake
-    })
+
+
+
+        // message.textContent = `${Math.abs(randomNumber - inzery) <= 5 ? "惜しい！": "" }${randomNumber > inzery?"大きい": "小さい"}` by Noritake
+
+        count2++;
+        countDisplay.textContent = `試行回数： ${count2}`;
+
+})
     gameContainer.appendChild(button);
 
 
@@ -104,6 +108,28 @@ function startNumberGuessGame(){
 
     gameContainer.appendChild(button5)
 
+    let count2 = 0;
+    const countDisplay = document.createElement("p");
+    countDisplay.textContent = `試行回数： ${count2}`;
+    gameContainer.appendChild(countDisplay);
     
 }
 startNumberGuessGame();
+
+function keisanki(){
+ 
+    const gameContainer = document.getElementById("game-container")
+
+    let input1 = document.createElement("input")
+
+    let input2 = document.createElement("input")
+
+    let kekka = document.createElement("p")
+
+
+    gameContainer.appendChild(kekka)
+    gameContainer.appendChild(input1)
+    gameContainer.appendChild(input2)
+}
+
+keisanki();
