@@ -116,20 +116,3 @@ function startNumberGuessGame(){
 }
 startNumberGuessGame();
 
-function keisanki(){
- 
-    const gameContainer = document.getElementById("game-container")
-
-    let input1 = document.createElement("input")
-
-    let input2 = document.createElement("input")
-
-    let kekka = document.createElement("p")
-
-
-    gameContainer.appendChild(kekka)
-    gameContainer.appendChild(input1)
-    gameContainer.appendChild(input2)
-}
-
-keisanki();
