@@ -1,12 +1,13 @@
 const gameSelector = document.getElementById('game-select');
-
-const select = document.createElement("select")
-select.name = "games"
-select.id = "game-select"
+const select = document.createElement("select");
+select.name = "games";
+select.id = "game-select";
+const gameSelect = document.getElementById('game-select');
 const options = [
     { value: "", text: "--ゲームを選択してください--" },
+    { value: "number-guess", text: "数当てゲーム" },
     { value: "clicker", text: "クリッカーゲーム" },
-    { value: "number-guess", text: "数当てゲーム" }
+    { value: "rps", text: "じゃんけんゲーム"}
 ]
 
 options.forEach(optionData => {
@@ -15,14 +16,13 @@ options.forEach(optionData => {
     option.textContent = optionData.text;
     select.appendChild(option)
 })
-gameSelector.appendChild(select)
+gameSelect.appendChild(select);
 
 
 const gameContainer = document.getElementById("game-container");
-
 gameSelector.addEventListener('change',function(){
     gameContainer.innerHTML = '';
-    switch (gameSelector.value){
+    switch (select.value){
         case 'number-guess':
             startNumberGuessGame();
             break;
@@ -32,9 +32,7 @@ gameSelector.addEventListener('change',function(){
         case 'rps':
 
             break;
-        case 'kei':
-            keisanki();
-            break;
+        
     }
 })
 
@@ -132,8 +130,8 @@ function startNumberGuessGame(){
 
         // message.textContent = `${Math.abs(randomNumber - inzery) <= 5 ? "惜しい！": "" }${randomNumber > inzery?"大きい": "小さい"}` by Noritake
 
-        count2++;
-        countDisplay.textContent = `試行回数： ${count2}`;
+        count1++;
+        countDisplay.textContent = `試行回数： ${count1}`;
 
 })
     gameContainer.appendChild(button);
@@ -147,155 +145,11 @@ function startNumberGuessGame(){
 
     gameContainer.appendChild(button5)
 
-    let count2 = 0;
+    let count1 = 0;
     const countDisplay = document.createElement("p");
-    countDisplay.textContent = `試行回数： ${count2}`;
+    countDisplay.textContent = `試行回数： ${count1}`;
     gameContainer.appendChild(countDisplay);
     
 }
 
 
-function keisanki(){
-    let ka = 0;
-    
-    const gameContainer = document.getElementById("game-container")
-
-    let input1 = document.createElement("input")
-    input1.placeholder = "入力１（半角数字）"
-
-    let input2 = document.createElement("input")
-    input2.placeholder = "入力２（半角数字）"
-
-    let purasu = document.createElement("button")
-    purasu.textContent = "＋"
-
-    let mainasu = document.createElement("button")
-    mainasu.textContent = "－"
-
-    let jou = document.createElement("button")
-    jou.textContent = "✖"
-
-    let jo = document.createElement("button")
-    jo.textContent = "÷"
-
-    let kekka = document.createElement("p")
-    kekka.textContent = ka
-
-    purasu.addEventListener("click",function(){
-        ka = 0;
-        let a = Number(input1.value)
-        let b = Number(input2.value)
-        if(a >= 0 && b >= 0 || a < 0 && b >= 0 || a >= 0 && b < 0 || a < 0 && b < 0){
-            ka = a + b;
-
-        }else if (a >= 0){
-             ka = a;
-            
-        }else if (b >= 0){
-             ka = b;
-             
-        }else if (a < 0){
-            ka = a;
-           
-       }else if (b < 0){
-        ka = b;
-        
-   }
-        
-        kekka.textContent = ka
-    })
-
-    mainasu.addEventListener("click",function(){
-        ka = 0;
-        let a = Number(input1.value)
-        let b = Number(input2.value)
-        if(a >= 0 && b >= 0 || a < 0 && b >= 0 || a >= 0 && b < 0 || a < 0 && b < 0){
-            ka = a - b;
-
-        }else if (a >= 0){
-             ka = a;
-            
-        }else if (b >= 0){
-             ka = b;
-             
-        }else if (a < 0){
-            ka = a;
-           
-       }else if (b < 0){
-        ka = b;
-        
-   }
-        
-        kekka.textContent = ka
-    })
-
-    purasu.addEventListener("click",function(){
-        ka = 0;
-        let a = Number(input1.value)
-        let b = Number(input2.value)
-        if(a >= 0 && b >= 0 || a < 0 && b >= 0 || a >= 0 && b < 0 || a < 0 && b < 0){
-            ka = a + b;
-
-        }else if (a >= 0){
-             ka = a;
-            
-        }else if (b >= 0){
-             ka = b;
-             
-        }else if (a < 0){
-            ka = a;
-           
-       }else if (b < 0){
-        ka = b;
-        
-   }
-        
-        kekka.textContent = ka
-    })
-
-    jou.addEventListener("click",function(){
-        ka = 0;
-        let a = Number(input1.value)
-        let b = Number(input2.value)
-        if(a >= 0 && b >= 0 || a < 0 && b >= 0 || a >= 0 && b < 0 || a < 0 && b < 0){
-            ka = a * b;
-
-        }else if (a >= 0){
-             ka = a * 0;
-            
-        }else if (b >= 0){
-             ka = b * 0;
-             
-        }else if (a < 0){
-            ka = a * 0;
-           
-       }else if (b < 0){
-        ka = b * 0;
-        
-   }
-        
-        kekka.textContent = ka
-    })
-
-    jo.addEventListener("click",function(){
-        ka = 0;
-        let a = Number(input1.value)
-        let b = Number(input2.value)
-        if(b != 0){
-            ka = a / b;
-            kekka.textContent = ka
-        }else{
-        kekka.textContent = "割れない"
-       }
-        
-        
-    })
-
-    gameContainer.appendChild(kekka)
-    gameContainer.appendChild(input1)
-    gameContainer.appendChild(input2)
-    gameContainer.appendChild(purasu)
-    gameContainer.appendChild(mainasu)
-    gameContainer.appendChild(jou)
-    gameContainer.appendChild(jo)
-}
