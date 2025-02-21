@@ -161,10 +161,10 @@ function keisanki(){
     const gameContainer = document.getElementById("game-container")
 
     let input1 = document.createElement("input")
-    input1.placeholder = "入力１（半角）"
+    input1.placeholder = "入力１（半角数字）"
 
     let input2 = document.createElement("input")
-    input2.placeholder = "入力２（半角）"
+    input2.placeholder = "入力２（半角数字）"
 
     let purasu = document.createElement("button")
     purasu.textContent = "＋"
